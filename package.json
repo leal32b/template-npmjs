@@ -1,0 +1,19 @@
+{
+  "name": "template-npmjs",
+  "version": "0.0.1",
+  "description": "Template to create a new npmjs lib",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leal32b/template-npmjs.git"
+  },
+  "author": "leal32b",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/leal32b/template-npmjs/issues"
+  },
+  "homepage": "https://github.com/leal32b/template-npmjs#readme"
+}
