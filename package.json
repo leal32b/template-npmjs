@@ -11,9 +11,12 @@
     "url": "git+https://github.com/leal32b/template-npmjs.git"
   },
   "author": "leal32b",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/leal32b/template-npmjs/issues"
   },
-  "homepage": "https://github.com/leal32b/template-npmjs#readme"
+  "homepage": "https://github.com/leal32b/template-npmjs#readme",
+  "devDependencies": {
+    "git-commit-msg-linter": "^4.1.1"
+  }
 }
