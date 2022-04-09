@@ -4,6 +4,8 @@
   "description": "Template to create a new npmjs lib",
   "main": "index.js",
   "scripts": {
+    "build": "rimraf dist && tsc -b tsconfig.build.json",
+    "build:watch": "npm run build -- -w",
     "eslint": "eslint 'src/**' --fix",
     "test": "jest --passWithNoTests --no-cache --runInBand --silent --noStackTrace --collectCoverage=false",
     "test:verbose": "jest --passWithNoTests --no-cache --runInBand",
@@ -12,6 +14,7 @@
     "test:staged": "npm test -- --findRelatedTests tests",
     "test:ci": "npm test -- --coverage"
   },
+  "files": ["dist/**/*"],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/leal32b/template-npmjs.git"
@@ -35,6 +38,7 @@
     "husky": "^4.3.8",
     "jest": "^27.5.1",
     "lint-staged": "^12.3.7",
+    "rimraf": "^3.0.2",
     "ts-jest": "^27.1.4",
     "typescript": "^4.6.3"
   }
