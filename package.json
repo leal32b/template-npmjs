@@ -1,17 +1,17 @@
 {
   "name": "template-npmjs",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Template to create a new npmjs lib",
   "main": "dist/index.js",
   "scripts": {
     "build": "rimraf dist && tsc -b tsconfig.build.json",
     "build:watch": "npm run build -- -w",
     "eslint": "eslint 'src/**' --fix",
-    "prepare" : "npm run build",
-    "prepublishOnly" : "npm test && npm run eslint",
-    "preversion" : "npm run eslint",
-    "version" : "npm run eslint && git add -A src",
-    "postversion" : "git push && git push --tags",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm test && npm run eslint",
+    "preversion": "npm run eslint",
+    "version": "npm run eslint && git add -A src",
+    "postversion": "git push && git push --tags",
     "test": "jest --passWithNoTests --no-cache --runInBand --silent --noStackTrace --collectCoverage=false",
     "test:verbose": "jest --passWithNoTests --no-cache --runInBand",
     "test:unit": "npm test -- -c jest-unit.config.js --watch",
@@ -19,12 +19,17 @@
     "test:staged": "npm test -- --findRelatedTests tests",
     "test:ci": "npm test -- --coverage"
   },
-  "files": ["dist/**/*"],
+  "files": [
+    "dist/**/*"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/leal32b/template-npmjs.git"
   },
-  "keywords": ["template", "npmjs"],
+  "keywords": [
+    "template",
+    "npmjs"
+  ],
   "author": "leal32b",
   "license": "MIT",
   "bugs": {
