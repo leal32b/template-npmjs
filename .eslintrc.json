@@ -1,0 +1,29 @@
+{
+  "extends": [
+    "standard-with-typescript"
+  ],
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
+  "rules": {
+    "@typescript-eslint/strict-boolean-expressions": "off",
+    "@typescript-eslint/no-floating-promises": "off",
+    "@typescript-eslint/consistent-type-definitions": "off",
+    "import/no-unresolved": "off",
+    "import/named": "warn",
+    "import/namespace": "warn",
+    "import/no-named-as-default": "off",
+    "import/export": "warn",
+    "import/order": [
+      "error",
+      {
+        "groups": ["builtin", "external", "parent", "sibling", "index"],
+        "newlines-between": "always",
+        "alphabetize": {
+          "order": "asc",
+          "caseInsensitive": true
+        }
+      }
+    ]
+  }
+}
