@@ -77,7 +77,7 @@ function checkIfRepositoryIsAClone () {
         .split(/\r?\n/)
         .map((line) => line.trim())
         .filter((line) => line.startsWith('origin'))
-        .filter((line) => /qejk\/template-test\.git/.test(line)).length
+        .filter((line) => /leal32b\/template-npmjs\.git/.test(line)).length
 
       resolve(!!isClonedRepo)
     })
@@ -284,7 +284,7 @@ function addToGitRepository () {
  */
 function commitToGitRepository () {
   return new Promise((resolve, reject) => {
-    exec('git commit -m "chore: initial commit"', (err, stdout) => {
+    exec('git commit -m "chore: initial commit" --allow-empty', (err, stdout) => {
       if (err) {
         reject(new Error(err))
       } else {
@@ -403,6 +403,7 @@ function updateNpmConfig (projectDetails) {
   delete newNpmConfig.devDependencies.rimraf
   delete newNpmConfig.devDependencies.shelljs
   // Remove setup scripts
+  delete newNpmConfig.scripts.presetup
   delete newNpmConfig.scripts.setup
 
   const stringifiedData = JSON.stringify(newNpmConfig, null, 2)
@@ -415,16 +416,16 @@ function updateNpmConfig (projectDetails) {
  */
 async function clearFiles (isRemovable) {
   if (isRemovable) {
-    fs.unlinkSync('./src/components/greeter.ts')
-    fs.unlinkSync('./src/index.ts')
-    rimraf.sync('./src/components')
+    // fs.unlinkSync('./src/components/greeter.ts')
+    // fs.unlinkSync('./src/index.ts')
+    // rimraf.sync('./src/components')
     // README.md
     let readme = fs.readFileSync('./.template-npmjs/templates/README.md', 'utf8')
     readme = readme.replace(/PACKAGE_NAME/g, npmConfig.name)
     readme = readme.replace(/PACKAGE_DESCRIPTION/g, npmConfig.description)
     readme = readme.replace(/PACKAGE_HOMEPAGE/g, npmConfig.homepage)
-    rimraf.sync('./.template-npmjs/scripts/helpers')
-    rimraf.sync('./.template-npmjs/templates')
+    fs.writeFileSync('./README.md', readme);
+    rimraf.sync('./.template-npmjs')
   }
 }
 
@@ -461,13 +462,13 @@ function removeTests () {
   )
 
   let projectDetails
-  // if (repoRemoved) {
+  if (repoRemoved) {
     projectDetails = await askUserAboutProjectDetails()
-  // }
+  }
 
   await installPackages(packageManager).catch((reason) => reportError(reason))
 
-  // if (repoRemoved) {
+  if (repoRemoved) {
     process.stdout.write('\n')
     let interval = animateProgress('Initializing new repository')
     process.stdout.write('Initializing new repository')
@@ -486,19 +487,12 @@ function removeTests () {
       addCheckMark()
       clearInterval(interval)
 
-      process.stdout.write('\n')
-      interval = animateProgress('Removing tests')
-      process.stdout.write('Removing tests')
-      removeTests()
-      addCheckMark()
-      clearInterval(interval)
-
-      process.stdout.write('\n')
-      interval = animateProgress('Removing documentation')
-      process.stdout.write('Removing documentation')
-      await removeDocumentation()
-      addCheckMark()
-      clearInterval(interval)
+      // process.stdout.write('\n')
+      // interval = animateProgress('Removing tests')
+      // process.stdout.write('Removing tests')
+      // removeTests()
+      // addCheckMark()
+      // clearInterval(interval)
 
       process.stdout.write('\n')
       interval = animateProgress('Clearing files')
@@ -510,7 +504,7 @@ function removeTests () {
     } catch (err) {
       reportError(err)
     }
-  // }
+  }
 
   endProcess()
 })()
