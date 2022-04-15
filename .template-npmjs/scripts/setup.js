@@ -25,6 +25,8 @@ const npmConfig = require('./helpers/get-npm-config')
 const animateProgress = require('./helpers/progress')
 const addXMark = require('./helpers/xmark')
 
+const newNpmConfig = {}
+
 process.stdin.resume()
 process.stdin.setEncoding('utf8')
 
@@ -397,7 +399,7 @@ async function askUserAboutProjectDetails () {
  */
 function updateNpmConfig (projectDetails) {
   projectDetails.version = '0.0.0'
-  const newNpmConfig = Object.assign({}, npmConfig, projectDetails)
+  newNpmConfig = Object.assign({}, npmConfig, projectDetails)
   // Remove setup dependencies
   delete newNpmConfig.devDependencies.inquirer
   delete newNpmConfig.devDependencies.rimraf
@@ -421,9 +423,9 @@ async function clearFiles (isRemovable) {
     // rimraf.sync('./src/components')
     // README.md
     let readme = fs.readFileSync('./.template-npmjs/templates/README.md', 'utf8')
-    readme = readme.replace(/PACKAGE_NAME/g, npmConfig.name)
-    readme = readme.replace(/PACKAGE_DESCRIPTION/g, npmConfig.description)
-    readme = readme.replace(/PACKAGE_HOMEPAGE/g, npmConfig.homepage)
+    readme = readme.replace(/PACKAGE_NAME/g, newNpmConfig.name)
+    readme = readme.replace(/PACKAGE_DESCRIPTION/g, newNpmConfig.description)
+    readme = readme.replace(/PACKAGE_HOMEPAGE/g, newNpmConfig.homepage)
     fs.writeFileSync('./README.md', readme);
     rimraf.sync('./.template-npmjs')
   }
