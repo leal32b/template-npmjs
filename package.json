@@ -26,7 +26,19 @@
   },
   "keywords": [
     "template",
-    "npmjs"
+    "lib",
+    "module",
+    "typescript",
+    "eslint",
+    "standardjs",
+    "git-commit-msg-linter",
+    "husky",
+    "lint-staged",
+    "jest",
+    "npmjs",
+    "codecov",
+    "circleci",
+    "shields"
   ],
   "author": "leal32b",
   "license": "MIT",

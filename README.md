@@ -1,5 +1,5 @@
 # template-npmjs
-Template to create a new npmjs lib
+Template to create a new npmjs lib with typescript, tests and ci
 
 ![image](https://img.shields.io/github/license/leal32b/template-npmjs?style=flat-square)
 ![image](https://img.shields.io/npm/v/template-npmjs?style=flat-square)
@@ -7,6 +7,20 @@ Template to create a new npmjs lib
 ![image](https://img.shields.io/circleci/build/github/leal32b/template-npmjs/main?style=flat-square)
 ![image](https://img.shields.io/codecov/c/gh/leal32b/template-npmjs?style=flat-square)
 ![image](https://img.shields.io/github/issues/leal32b/template-npmjs?style=flat-square)
+
+
+Technologies:
+- [Typescript](https://typescriptlang.org)
+- [Eslint](https://eslint.org)
+- [StandardJS](https://standardjs.com)
+- [git-commit-msg-linter](https://github.com/legend80s/commit-msg-linter)
+- [husky](https://typicode.github.io/husky)
+- [lint-staged](https://github.com/okonet/lint-staged)
+- [jest](https://jestjs.io)
+- [npmjs](https://npmjs.com)
+- [Codecov](https://codecov.io)
+- [Circleci](https://circleci.com)
+- [Shields](http://shields.io)
 
 ## Installation
 > npm install template-npmjs
@@ -33,12 +47,14 @@ templateNpmjs.greeter('Johnn Doe')  // Hello John Doe!
 - [Circleci](https://circleci.com) account
 
 ## Project config
-- Replace the string `template-npmjs` in the entire repository, with your lib name
+- Replace the string `template-npmjs` in the entire repository, with your lib name (verify in npmjs.com if it's available)
 - Replace the string `github.com/leal32b` in package.json with `github.com/<your_github_username>`
-- Section `Example usage` of this README needs to be updated according to the new functionalities 
+- Update package.json with appropriate keywords
+- The section `Example usage` of this README needs to be updated according to the new functionalities 
 - Change version on package.json/package-lock.json to `0.0.0`
 - Run `npm ci` to install the initial dependencies
-- Commit and push the changes
+- Commit changes (suggestion: `git commit -m 'chore: initial commit'`)
+- Push changes
 
 ## Npmjs config
 - Click on your profile picture and then "Access Tokens"
@@ -79,3 +95,6 @@ templateNpmjs.greeter('Johnn Doe')  // Hello John Doe!
     - Require branches to be up to date before merging
       - Search and add this Status checks: `ci/circleci: build`, `ci/circleci: test`
 - Click on "Create"
+
+## Shields [optional]
+- Adjust shields.io urls in this README
