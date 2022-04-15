@@ -1,7 +1,7 @@
-import npmjsTemplate from '@/index'
+import templateNpmjs from '@/index'
 
 describe('npmjsTemplate', () => {
   it('should have greeter as property', () => {
-    expect(npmjsTemplate.greeter).toBeTruthy()
+    expect(templateNpmjs.greeter).toBeTruthy()
   })
 })

@@ -1,5 +1,5 @@
 import greeter from '@/components/greeter'
 
-const npmjsTemplate = { greeter }
+const templateNpmjs = { greeter }
 
-export = npmjsTemplate
+export = templateNpmjs
