@@ -23,7 +23,9 @@ Technologies:
 - [Shields](http://shields.io)
 
 ## Installation
-> npm install template-npmjs
+```bash
+npm install template-npmjs
+```
 
 ## Example usage
 ```javascript
