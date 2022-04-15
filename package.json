@@ -18,7 +18,7 @@
     "test:ci": "npm test -- --coverage"
   },
   "files": [
-    "dist/**/*"
+    "dist"
   ],
   "repository": {
     "type": "git",
