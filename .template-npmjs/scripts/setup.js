@@ -382,7 +382,7 @@ async function askUserAboutProjectDetails () {
       type: 'confirm',
       name: 'isRemovable',
       message:
-        'Do you want to remove existing code and documentation under ./src',
+        'Do you want to remove example code under ./src and ./test',
       default: 'n'
     }
   ]
@@ -417,18 +417,21 @@ function updateNpmConfig (projectDetails) {
  * Clears files related to project.
  */
 async function clearFiles (isRemovable) {
+  console.log('isRemovable >>>', isRemovable);
   if (isRemovable) {
     // fs.unlinkSync('./src/components/greeter.ts')
     // fs.unlinkSync('./src/index.ts')
     // rimraf.sync('./src/components')
-    // README.md
-    let readme = fs.readFileSync('./.template-npmjs/templates/README.md', 'utf8')
-    readme = readme.replace(/PACKAGE_NAME/g, newNpmConfig.name)
-    readme = readme.replace(/PACKAGE_DESCRIPTION/g, newNpmConfig.description)
-    readme = readme.replace(/PACKAGE_HOMEPAGE/g, newNpmConfig.homepage)
-    fs.writeFileSync('./README.md', readme);
-    rimraf.sync('./.template-npmjs')
   }
+
+  // README.md
+  let readme = fs.readFileSync('./.template-npmjs/templates/README.md', 'utf8')
+  readme = readme.replace(/PACKAGE_NAME/g, newNpmConfig.name)
+  readme = readme.replace(/PACKAGE_DESCRIPTION/g, newNpmConfig.description)
+  readme = readme.replace(/PACKAGE_HOMEPAGE/g, newNpmConfig.homepage)
+  readme = readme.replace(/LICENSE_TYPE/g, newNpmConfig.license)
+  fs.writeFileSync('./README.md', readme);
+  rimraf.sync('./.template-npmjs')
 }
 
 /**
