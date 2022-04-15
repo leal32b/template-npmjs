@@ -1,9 +1,12 @@
-version: 2
+version: 2.1
+
+orbs:
+  codecov: codecov/codecov@3.2.2
 
 defaults: &defaults
   working_directory: ~/repo
   docker:
-    - image: circleci/node:14.15.3
+    - image: cimg/node:14.15.3
 
 jobs:
   test:
@@ -32,6 +35,8 @@ jobs:
       - attach_workspace:
           at: ~/repo
       - run: npm run build
+      - codecov/upload:
+          file: './coverage/clover.xml'
       - persist_to_workspace:
           root: ~/repo
           paths:
@@ -49,7 +54,7 @@ jobs:
           command: npm version patch -m "version %s [skip ci]"
       - run:
           name: Push tag & changes to github.com
-          command: git push
+          command: git push && git push --tags
       - run:
           name: Authenticate with registry
           command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/.npmrc
