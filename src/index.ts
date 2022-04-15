@@ -1,1 +1,5 @@
-export const Greeter = (name: string): string => `Hello ${name}`
+import greeter from '@/components/greeter'
+
+const npmjsTemplate = { greeter }
+
+export = npmjsTemplate
