@@ -284,7 +284,7 @@ function addToGitRepository () {
  */
 function commitToGitRepository () {
   return new Promise((resolve, reject) => {
-    exec('git commit -m "Initial commit"', (err, stdout) => {
+    exec('git commit -m "chore: initial commit"', (err, stdout) => {
       if (err) {
         reject(new Error(err))
       } else {
@@ -429,22 +429,6 @@ async function clearFiles (isRemovable) {
 }
 
 /**
- * Removes last build.
- * @returns {Promise<any>}
- */
-function removeBuild () {
-  return new Promise((resolve, reject) => {
-    exec('npm run clean', (err, stdout) => {
-      if (err) {
-        reject(new Error(err))
-      } else {
-        resolve(stdout)
-      }
-    })
-  })
-}
-
-/**
  * Removes tests.
  * @returns void
  */
@@ -477,13 +461,13 @@ function removeTests () {
   )
 
   let projectDetails
-  if (repoRemoved) {
+  // if (repoRemoved) {
     projectDetails = await askUserAboutProjectDetails()
-  }
+  // }
 
   await installPackages(packageManager).catch((reason) => reportError(reason))
 
-  if (repoRemoved) {
+  // if (repoRemoved) {
     process.stdout.write('\n')
     let interval = animateProgress('Initializing new repository')
     process.stdout.write('Initializing new repository')
@@ -510,13 +494,6 @@ function removeTests () {
       clearInterval(interval)
 
       process.stdout.write('\n')
-      interval = animateProgress('Removing build')
-      process.stdout.write('Removing build')
-      await removeBuild()
-      addCheckMark()
-      clearInterval(interval)
-
-      process.stdout.write('\n')
       interval = animateProgress('Removing documentation')
       process.stdout.write('Removing documentation')
       await removeDocumentation()
@@ -533,7 +510,7 @@ function removeTests () {
     } catch (err) {
       reportError(err)
     }
-  }
+  // }
 
   endProcess()
 })()
