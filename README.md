@@ -26,5 +26,6 @@ templateNpmjs.greeter('Johnn Doe')  // Hello John Doe!
 ```
 
 ## Circleci config
-Go to "Project Settings" / "SSH Keys" and add a "User Key"
+- Go to "Organization Settings" / "Security" and set "Allow Uncertified Orbs" to "Yes"
+- Go to "Project Settings" / "SSH Keys" and add a "User Key"
 
