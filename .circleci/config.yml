@@ -54,7 +54,7 @@ jobs:
           command: npm version patch -m "version %s [skip ci]"
       - run:
           name: Push tag & changes to github.com
-          command: git push
+          command: git push && git push --tags
       - run:
           name: Authenticate with registry
           command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/.npmrc
