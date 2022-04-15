@@ -25,7 +25,7 @@ const npmConfig = require('./helpers/get-npm-config')
 const animateProgress = require('./helpers/progress')
 const addXMark = require('./helpers/xmark')
 
-const newNpmConfig = {}
+let newNpmConfig = {}
 
 process.stdin.resume()
 process.stdin.setEncoding('utf8')
