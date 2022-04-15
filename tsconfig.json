@@ -2,19 +2,22 @@
   "compilerOptions": {
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
+    "declaration": true,
     "outDir": "dist",
     "module": "commonjs",
     "target": "esnext",
     "esModuleInterop": true,
     "allowJs": true,
-    "sourceMap": true,
     "baseUrl": ".",
     "rootDir": ".",
     "paths": {
       "@/*": ["src/*"],
-      "~/*": ["tests/*"]
-    }
+      "~/*": ["test/*"]
+    },
+    "plugins": [
+      { "transform": "typescript-transform-paths" },
+    ]
   },
-  "include": ["src/**/*.ts", "tests/**/*.ts"],
+  "include": ["src/**/*.ts", "test/**/*.ts"],
   "exclude": ["node_modules"]
 }
