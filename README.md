@@ -5,6 +5,7 @@ Template to create a new npmjs lib
 ![image](https://img.shields.io/npm/v/template-npmjs?style=flat-square)
 ![image](https://img.shields.io/npm/dw/template-npmjs?style=flat-square)
 ![image](https://img.shields.io/circleci/build/github/leal32b/template-npmjs/main?style=flat-square)
+![image](https://img.shields.io/codecov/c/gh/leal32b/template-npmjs?style=flat-square)
 ![image](https://img.shields.io/github/issues/leal32b/template-npmjs?style=flat-square)
 
 ## Installation
@@ -21,11 +22,10 @@ import templateNpmjs from 'template-npmjs'
 ```
 
 ```typescript
-// Calling example1 function
+// Calling example function
 templateNpmjs.greeter('Johnn Doe')  // Hello John Doe!
 ```
 
 ## Circleci config
 - Go to "Organization Settings" / "Security" and set "Allow Uncertified Orbs" to "Yes"
 - Go to "Project Settings" / "SSH Keys" and add a "User Key"
-
