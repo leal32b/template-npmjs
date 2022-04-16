@@ -370,15 +370,22 @@ async function askUserAboutProjectDetails () {
   const questions2 = [
     {
       type: 'input',
+      name: 'repository',
+      message:
+        "What's the project's repository url (https://github.com/<AUTHOR-NAME>/<PACKAGE-NAME>.git",
+      default: `https://github.com/${answer.author}/${answer.name}.git`
+    },
+    {
+      type: 'input',
       name: 'homepage',
       message:
-        "What's the project's homepage: https://github.com//<AUTHOR-NAME>/<PACKAGE-NAME>#readme",
+        "What's the project's homepage url (https://github.com//<AUTHOR-NAME>/<PACKAGE-NAME>#readme)",
       default: `https://github.com/${answer.author}/${answer.name}#readme`
     },
     {
       type: 'input',
       name: 'bugs',
-      message: "What's the project's Github issue page(bugs): https://github.com/<AUTHOR-NAME>/<PACKAGE-NAME>/issues",
+      message: "What's the project's Github issue page url (https://github.com/<AUTHOR-NAME>/<PACKAGE-NAME>/issues)",
       default: `https://github.com/${answer.author}/${answer.name}/issues`
     },
     {
@@ -426,9 +433,11 @@ function updateNpmConfig (projectDetails) {
 async function clearFiles (isRemovable) {
   console.log('isRemovable >>>', isRemovable);
   if (isRemovable) {
-    // fs.unlinkSync('./src/components/greeter.ts')
-    // fs.unlinkSync('./src/index.ts')
-    // rimraf.sync('./src/components')
+    fs.unlinkSync('./src/components/greeter.ts')
+    fs.unlinkSync('./src/index.ts')
+    rimraf.sync('./src/components')
+
+    removeTests()
   }
 
   // README.md
@@ -506,6 +515,8 @@ function removeTests () {
       process.stdout.write('\n')
       interval = animateProgress('Updating package.json')
       process.stdout.write('Updating package.json')
+      projectDetails.repository = { url: `git+${projectDetails.repository}` }
+      projectDetails.bugs = { url: projectDetails.bugs }
       updateNpmConfig(projectDetails)
       addCheckMark()
       clearInterval(interval)
