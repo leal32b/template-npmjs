@@ -395,7 +395,7 @@ async function askUserAboutProjectDetails () {
     }
   ]
   
-  const answer2 = await inquirer.prompt(questions)
+  const answer2 = await inquirer.prompt(questions2)
 
   return { ...answer, ...answer2 }
 }
@@ -424,6 +424,7 @@ function updateNpmConfig (projectDetails) {
  * Clears files related to project.
  */
 async function clearFiles (isRemovable) {
+  console.log('isRemovable >>>', isRemovable);
   if (isRemovable) {
     // fs.unlinkSync('./src/components/greeter.ts')
     // fs.unlinkSync('./src/index.ts')
