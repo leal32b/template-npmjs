@@ -365,12 +365,14 @@ async function askUserAboutProjectDetails () {
       type: 'input',
       name: 'homepage',
       message:
-        "What's the project's homepage(use Github Pages URL: http://<AUTHOR-NAME>.github.io/<PACKAGE-NAME>/"
+        "What's the project's homepage(use Github Pages URL: http://<AUTHOR-NAME>.github.io/<PACKAGE-NAME>/",
+      default: ''
     },
     {
       type: 'input',
       name: 'bugs',
-      message: "What's the project's Github issue page(bugs)"
+      message: "What's the project's Github issue page(bugs)",
+      default: ''
     },
     {
       type: 'input',
@@ -383,7 +385,7 @@ async function askUserAboutProjectDetails () {
       name: 'isRemovable',
       message:
         'Do you want to remove example code under ./src and ./test',
-      default: 'n'
+      default: 'N'
     }
   ]
   const answer = await inquirer.prompt(questions)
@@ -431,6 +433,17 @@ async function clearFiles (isRemovable) {
   readme = readme.replace(/PACKAGE_HOMEPAGE/g, newNpmConfig.homepage)
   readme = readme.replace(/LICENSE_TYPE/g, newNpmConfig.license)
   fs.writeFileSync('./README.md', readme);
+  
+  // index.ts
+  let index = fs.readFileSync('./.template-npmjs/templates/index.ts', 'utf8')
+  index = index.replace(/PACKAGE_NAME/g, newNpmConfig.name)
+  fs.writeFileSync('./src/index.ts', index);
+
+  // index.test.ts
+  let indexTest = fs.readFileSync('./.template-npmjs/templates/index.test.ts', 'utf8')
+  indexTest = indexTest.replace(/PACKAGE_NAME/g, newNpmConfig.name)
+  fs.writeFileSync('./test/index.test.ts', indexTest);
+
   rimraf.sync('./.template-npmjs')
 }
 
