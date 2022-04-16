@@ -254,7 +254,7 @@ function installPackages (packageManager) {
  */
 function initGitRepository () {
   return new Promise((resolve, reject) => {
-    exec('git init', (err, stdout) => {
+    exec('git init -b main', (err, stdout) => {
       if (err) {
         reject(new Error(err))
       } else {
@@ -372,7 +372,7 @@ async function askUserAboutProjectDetails () {
       type: 'input',
       name: 'repository',
       message:
-        "What's the project's repository url (https://github.com/<AUTHOR-NAME>/<PACKAGE-NAME>.git",
+        "What's the project's repository url (https://github.com/<AUTHOR-NAME>/<PACKAGE-NAME>.git)",
       default: `https://github.com/${answer.author}/${answer.name}.git`
     },
     {
@@ -431,7 +431,6 @@ function updateNpmConfig (projectDetails) {
  * Clears files related to project.
  */
 async function clearFiles (isRemovable) {
-  console.log('isRemovable >>>', isRemovable);
   if (isRemovable) {
     fs.unlinkSync('./src/components/greeter.ts')
     fs.unlinkSync('./src/index.ts')
