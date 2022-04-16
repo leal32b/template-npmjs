@@ -22,12 +22,13 @@ Technologies:
 - [Circleci](https://circleci.com)
 - [Shields](http://shields.io)
 
+# Examples
 ## Installation
 ```bash
 npm install template-npmjs
 ```
 
-## Example usage
+## Usage
 ```javascript
 // javascript
 const templateNpmjs = require('template-npmjs')
@@ -43,29 +44,32 @@ import templateNpmjs from 'template-npmjs'
 templateNpmjs.greeter('Johnn Doe')  // Hello John Doe!
 ```
 
-## Prerequisites
+# Prerequisites
 - [Npmjs](https://npmjs.com) account
 - [Codecov](https://codecov.io) account
 - [Circleci](https://circleci.com) account
 
-## Project config
-- Replace the string `template-npmjs` in the entire repository, with your lib name (verify in npmjs.com if it's available)
-- Replace the string `github.com/leal32b` in package.json with `github.com/<your_github_username>`
-- Update package.json with appropriate keywords
-- The section `Example usage` of this README needs to be updated according to the new functionalities 
-- Change version on package.json/package-lock.json to `0.0.0`
-- Run `npm ci` to install the initial dependencies
-- Commit changes (suggestion: `git commit -m 'chore: initial commit'`)
-- Push changes
+# Quick start
+```bash
+# Clone repository
+$ git clone git@github.com:leal32b/template-npmjs.git <YOUR_PROJECT_NAME>
+# Go into the repository
+$ cd <YOUR_PROJECT_NAME>
+# Run setup
+$ npm run setup
+# Commit and Push your changes
+$ git commit -m 'chore: setup project'
+$ git push
+```
 
-## Npmjs config
+# Npmjs config
 - Click on your profile picture and then "Access Tokens"
 - Click on "Generate New Token"
 - Provide your password if asked
 - If the generated token is of type `Read-only`, delete this token and click on "Generate New Token" again
 - Select type `Automation` and click on "Generate Token"
 - Copy/save this value (it won't be showed ever again)
-## Circleci config
+# Circleci config
 - Allow uncertified orbs (needed for `codecov` orb):
   - Go to "Organization Settings" / "Security" and set "Allow Uncertified Orbs" to `Yes`
 - Project set up:
@@ -84,7 +88,7 @@ templateNpmjs.greeter('Johnn Doe')  // Hello John Doe!
   - Go to "Project Settings" /  "SSH Keys" add a "User Key" (needed to push to `github`)
   - Go back to project's main page and click on "Rerun workflow from start" ("Actions" column)
 
-## Github config [optional]
+# Github config [optional]
 - Go to repository "Settings" / "Branches"
 - Click on "Add rule"
 - On Branch name pattern, insert `main`
@@ -98,5 +102,8 @@ templateNpmjs.greeter('Johnn Doe')  // Hello John Doe!
       - Search and add this Status checks: `ci/circleci: build`, `ci/circleci: test`
 - Click on "Create"
 
-## Shields [optional]
+# Badges [optional]
 - Adjust shields.io urls in this README
+
+# Licence
+MIT
