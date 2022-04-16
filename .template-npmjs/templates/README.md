@@ -1,12 +1,12 @@
-# template-npmjs
-Template to create a new npmjs lib with typescript, tests and ci
+# PACKAGE_NAME
+PACKAGE_DESCRIPTION
 
-![image](https://img.shields.io/github/license/leal32b/template-npmjs?style=flat-square)
-![image](https://img.shields.io/npm/v/template-npmjs?style=flat-square)
-![image](https://img.shields.io/npm/dw/template-npmjs?style=flat-square)
-![image](https://img.shields.io/circleci/build/github/leal32b/template-npmjs/main?style=flat-square)
-![image](https://img.shields.io/codecov/c/gh/leal32b/template-npmjs?style=flat-square)
-![image](https://img.shields.io/github/issues/leal32b/template-npmjs?style=flat-square)
+![image](https://img.shields.io/github/license/leal32b/PACKAGE_NAME?style=flat-square)
+![image](https://img.shields.io/npm/v/PACKAGE_NAME?style=flat-square)
+![image](https://img.shields.io/npm/dw/PACKAGE_NAME?style=flat-square)
+![image](https://img.shields.io/circleci/build/github/leal32b/PACKAGE_NAME/main?style=flat-square)
+![image](https://img.shields.io/codecov/c/gh/leal32b/PACKAGE_NAME?style=flat-square)
+![image](https://img.shields.io/github/issues/leal32b/PACKAGE_NAME?style=flat-square)
 
 
 Technologies:
@@ -25,41 +25,39 @@ Technologies:
 # Examples
 ## Installation
 ```bash
-npm install template-npmjs
+npm install PACKAGE_NAME
 ```
 
 ## Usage
 ```javascript
 // javascript
-const templateNpmjs = require('template-npmjs')
+const PACKAGE_NAME = require('PACKAGE_NAME')
 ```
 
 ```typescript
 // typescript
-import templateNpmjs from 'template-npmjs'
+import PACKAGE_NAME from 'PACKAGE_NAME'
 ```
 
 ```typescript
 // Calling example function
-templateNpmjs.greeter('Johnn Doe')  // Hello John Doe!
+PACKAGE_NAME.greeter('Johnn Doe')  // Hello John Doe!
 ```
 
-# Prerequisites
-- [Npmjs](https://npmjs.com) account
-- [Codecov](https://codecov.io) account
-- [Circleci](https://circleci.com) account
+# Licence
+LICENSE_TYPE
 
+
+
+# == EXCLUDE THIS SECTION AFTER YOU FINISH ALL CONFIGS ==
 # Quick start
 ```bash
 # Clone repository
-$ git clone git@github.com:leal32b/template-npmjs.git <YOUR_PROJECT_NAME>
+$ git clone git@github.com:leal32b/template-npmjs.git PACKAGE_NAME
 # Go into the repository
-$ cd <YOUR_PROJECT_NAME>
+$ cd PACKAGE_NAME
 # Run setup
 $ npm run setup
-# Commit and Push your changes
-$ git commit -m 'chore: setup project'
-$ git push
 ```
 
 # Npmjs config
@@ -104,6 +102,3 @@ $ git push
 
 # Badges [optional]
 - Adjust shields.io urls in this README
-
-# Licence
-MIT

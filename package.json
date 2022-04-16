@@ -11,6 +11,8 @@
     "build": "rimraf dist && ttsc -b tsconfig.build.json",
     "build:watch": "npm run build -- -w",
     "eslint": "eslint 'src/**' --fix",
+    "presetup": "npm i chalk@4.1.2 shelljs compare-versions inquirer rimraf --no-save",
+    "setup": "node ./.template-npmjs/scripts/setup.js",
     "test": "jest --passWithNoTests --no-cache --runInBand --silent --noStackTrace --collectCoverage=false",
     "test:verbose": "jest --passWithNoTests --no-cache --runInBand",
     "test:watch": "npm test -- --watch",
