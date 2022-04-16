@@ -57,9 +57,6 @@ $ git clone git@github.com:leal32b/template-npmjs.git <YOUR_PROJECT_NAME>
 $ cd <YOUR_PROJECT_NAME>
 # Run setup
 $ npm run setup
-# Commit and Push your changes
-$ git commit -m 'chore: setup project'
-$ git push
 ```
 
 # Npmjs config

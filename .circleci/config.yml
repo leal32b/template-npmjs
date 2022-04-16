@@ -6,7 +6,7 @@ orbs:
 defaults: &defaults
   working_directory: ~/repo
   docker:
-    - image: circleci/node:14.15.3
+    - image: cimg/node:14.15.3
 
 jobs:
   test:
