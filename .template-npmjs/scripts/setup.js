@@ -360,19 +360,26 @@ async function askUserAboutProjectDetails () {
       type: 'input',
       name: 'authorName',
       message: "Who's the project author"
-    },
+    }
+  ];
+
+  const answer = await inquirer.prompt(questions)
+  answer.author = answer.authorName
+  delete answer.authorName
+
+  const questions2 = [
     {
       type: 'input',
       name: 'homepage',
       message:
-        "What's the project's homepage(use Github Pages URL: http://<AUTHOR-NAME>.github.io/<PACKAGE-NAME>/",
-      default: ''
+        "What's the project's homepage: https://github.com//<AUTHOR-NAME>/<PACKAGE-NAME>#readme",
+      default: `https://github.com/${answer.author}/${answer.name}#readme`
     },
     {
       type: 'input',
       name: 'bugs',
-      message: "What's the project's Github issue page(bugs)",
-      default: ''
+      message: "What's the project's Github issue page(bugs): https://github.com/<AUTHOR-NAME>/<PACKAGE-NAME>/issues",
+      default: `https://github.com/${answer.author}/${answer.name}/issues`
     },
     {
       type: 'input',
@@ -383,16 +390,14 @@ async function askUserAboutProjectDetails () {
     {
       type: 'confirm',
       name: 'isRemovable',
-      message:
-        'Do you want to remove example code under ./src and ./test',
-      default: 'N'
+      message: 'Do you want to remove example code under ./src and ./test',
+      default: false
     }
   ]
-  const answer = await inquirer.prompt(questions)
-  answer.author = answer.authorName
-  delete answer.authorName
+  
+  const answer2 = await inquirer.prompt(questions)
 
-  return answer
+  return { ...answer, ...answer2 }
 }
 
 /**
@@ -419,7 +424,6 @@ function updateNpmConfig (projectDetails) {
  * Clears files related to project.
  */
 async function clearFiles (isRemovable) {
-  console.log('isRemovable >>>', isRemovable);
   if (isRemovable) {
     // fs.unlinkSync('./src/components/greeter.ts')
     // fs.unlinkSync('./src/index.ts')
